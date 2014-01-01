@@ -23,6 +23,9 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 
 ## <a name="overview"></a>Overview
 
+### Enabling Remote Control
+Launch Steam with the `-enableremotecontrol` argument. This will launch Steam with the remote webserver enabled so you can access all the new API features. Alternatively those running SteamOS will find this is enabled by default.
+
 ### Formats
 The base URL for all API requests is `https://<your_steam_client_ip>:8443/steam`
 
