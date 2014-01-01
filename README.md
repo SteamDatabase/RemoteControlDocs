@@ -331,3 +331,7 @@ Changes the currently active space in Big Picture.
 ## Javascript
 #### [SteamDB's SteamRemoteClient](https://github.com/SteamDatabase/RemoteUI/blob/master/js/RemoteClient.js)
 Primarily made for use with the RemoteUI.html tool (included in the repository), but for non-local access can be easily modified. It's worth noting that the API does not provide an `Access-Control-Allow-Origin` header, let alone one with a wildcard value, so most browsers won't work with it from a different origin without disabling some security features. JSONP doesn't support POST requests, so that option is out the window too.
+
+======
+
+If you have a library, please do add it above under the necessary language heading (if the language isn't there, add it)!
