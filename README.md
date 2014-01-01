@@ -96,6 +96,10 @@ The button identifier should be used in place of :button in the get request abov
     </thead>
     <tbody>
         <tr>
+            <td>Guide/Overlay</td>
+            <td><code>guide</code></td>
+        </tr>
+        <tr>
             <td>Left</td>
             <td><code>left</code></td>
         </tr>
@@ -126,6 +130,14 @@ The button identifier should be used in place of :button in the get request abov
         <tr>
             <td>Y</td>
             <td><code>y</code></td>
+        </tr>
+        <tr>
+            <td>Right Trigger</td>
+            <td><code>rtrigger</code></td>
+        </tr>
+        <tr>
+            <td>Left Trigger</td>
+            <td><code>ltrigger</code></td>
         </tr>
     </tbody>
 </table>
@@ -188,10 +200,71 @@ Simulates a mouse click in Steam Big Picture.
 </table>
 
 ## Keyboard
-Simulates key presses (or a sequence of characters being typed out) within Steam Big Picture.
+Simulates keyboard functionality within Steam Big Picture.
 
 ### Keys
-TODO.
+```
+POST /steam/keyboard/key/
+```
+Simulates the key press of functional keys. Cannot be used for typing, this is what [Sequences](#sequences) are for. Rather this can be used to simulate key presses such as enter/return (for sending messages), backspace, space, the F1-12 keys, etc. Only those that provide some functional use are listed in the table below. If any are missed, please feel free to add them.
+
+#### Key Table
+<table>
+    <thead>
+        <tr>
+            <th>Identifier</th>
+            <th>Key</th>
+            <th>Where?</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>key_enter</code></td>
+            <td>Enter/Return</td>
+            <td>Anywhere</td>
+            <td>Simulates pressing enter, most likely use is to send a message after entering it using a [Sequence](#sequences) when no controller is plugged in (A button in API does not send a message with no controller connected, though this may just be a bug and fixed in the future).</td>
+        </tr>
+        <tr>
+            <td><code>key_backspace</code></td>
+            <td>Backspace</td>
+            <td>Input Box</td>
+            <td>Simulates backspace, useful for deleting after sending a sequence.</td>
+        </tr>
+        <tr>
+            <td><code>key_end</code></td>
+            <td>End</td>
+            <td>Input Box</td>
+            <td>Goes to end of the contents of a text input.</td>
+        </tr>
+        <tr>
+            <td><code>key_home</code></td>
+            <td>Home</td>
+            <td>Input Box</td>
+            <td>Goes to the beginning of a text input.</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>name</code></td>
+            <td>required</td>
+            <td>string</td>
+            <td>The key name from the above table to pass to Big Picture (example: <code>key_enter</code></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Sequences
 ```
