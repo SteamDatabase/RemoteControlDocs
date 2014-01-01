@@ -5,7 +5,6 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 
 ## Table of Contents
 + [Overview](#overview)
-
 + [Authentication](#authentication)
 + [Buttons](#buttons)
 + [Keyboard](#keyboard)
