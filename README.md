@@ -146,6 +146,9 @@ The button identifier should be used in place of :button in the get request abov
 Used to control the cursor within Steam Big Picture and simulate Mouse Button presses.
 
 ### Mouse Movement
+```
+POST /steam/mouse/move
+```
 Moves the Big Picture cursor x/y distance relative to its current position.
 
 #### Parameters
@@ -243,6 +246,18 @@ Simulates the key press of functional keys. Cannot be used for typing, this is w
             <td>Input Box</td>
             <td>Goes to the beginning of a text input.</td>
         </tr>
+        <tr>
+            <td><code>key_f1-12</code></td>
+            <td>F keys (1-12)</td>
+            <td>Anywhere</td>
+            <td>Presses the specifies F key (provide a number between 1 and 12)</td>
+        </tr>
+        <tr>
+            <td><code>key_escape</code></td>
+            <td>Escape</td>
+            <td>Anywhere</td>
+            <td>Works the same as the B button for the most part, goes back to the previous screen.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -333,7 +348,7 @@ POST /steam/games/:appid/run
 Runs the game corresponding to the supplied App ID (if it's installed). If the game isn't installed, it will be installed and a second request to play it must be called once installation has completed in order to run the game.
 
 ## Spaces
-'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces are known, but more will be added below as they are made known.
+'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces have been implemented.
 
 #### Known Space Mappings
 <table>
