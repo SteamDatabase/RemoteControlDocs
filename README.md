@@ -5,6 +5,9 @@ Documentation for the Steam Remote Control API, first documented by [SteamDB](ht
 
 Credit mostly goes to the SteamDB guys for this, they did all the leg-work. just extracted the information from their [SteamRemoteClient Tool](https://github.com/SteamDatabase/RemoteUI/) and made a nice documentation out of it for my own reference and for the reference of others.
 
+### Contributions Welcome!
+If you find an error, want to add something I missed or simply want to add a client library just submit a [pull request](https://github.com/BenWoodford/SteamRemote-API-Docs/pulls)! Or if you know something is wrong but don't know how to fix it, throw up an [issue](https://github.com/BenWoodford/SteamRemote-API-Docs/issues)!
+
 ## Table of Contents
 + [Overview](#overview)
 + [Authentication](#authentication)
