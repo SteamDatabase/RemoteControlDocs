@@ -78,7 +78,7 @@ The first request you make to the API while in Big Picture will prompt you to au
 ```
 POST /steam/button/:button/
 ```
-The Button API allows you to simulate the pressing of controller buttons within Steam Big Picture. The buttons are based on an Xbox 360 Gamepad, whether this will change in the future to better reflect the official Steam Controller is unknown.
+Simulates the pressing of controller buttons within Steam Big Picture. The buttons are based on an Xbox 360 Gamepad, whether this will change in the future to better reflect the official Steam Controller is unknown.
 
 #### Valid Buttons
 
@@ -110,7 +110,7 @@ The button identifier should be used in place of :button in the get request abov
         </tr>
         <tr>
             <td>A</td>
-            <td><code>right</code></td>
+            <td><code>a</code></td>
         </tr>
         <tr>
             <td>B</td>
@@ -128,7 +128,7 @@ The button identifier should be used in place of :button in the get request abov
 </table>
 
 ## Mouse
-The Mouse API can be used to control the cursor within Steam Big Picture and simulate Mouse Button presses.
+Used to control the cursor within Steam Big Picture and simulate Mouse Button presses.
 
 ### Mouse Movement
 Moves the Big Picture cursor x/y distance relative to its current position.
@@ -185,7 +185,7 @@ Simulates a mouse click in Steam Big Picture.
 </table>
 
 ## Keyboard
-The Keyboard API allows you to simulate key presses (or a sequence of characters being typed out) within Steam Big Picture.
+Simulates key presses (or a sequence of characters being typed out) within Steam Big Picture.
 
 ### Keys
 TODO.
@@ -194,7 +194,7 @@ TODO.
 ```
 POST /steam/keyboard/sequence/
 ```
-The Keyboard API's sequence method accepts a string of characters as a POST field and outputs it as a string of characters in the current selected text input within Steam Big Picture.
+Accepts a string of characters as a POST field and outputs it as a string of characters in the currently selected text input within Steam Big Picture.
 
 #### Parameters
 <table>
@@ -216,7 +216,7 @@ The Keyboard API's sequence method accepts a string of characters as a POST fiel
     </tbody>
 </table>
 ## Games
-The Games API allows you to browse your game library remotely and even load up games within Steam Big Picture.
+Enables the browsing of the currently logged in user's game library and the starting up of games within Steam Big Picture.
 ### List Games
 ```
 GET /steam/games/
@@ -254,9 +254,10 @@ Returns a list of all available games in the currently logged in user's library.
 ```
 POST /steam/games/:appid/run
 ```
-Runs the game in the logged in user's library corresponding to the supplied App ID (if it's installed).
+Runs the game corresponding to the supplied App ID (if it's installed).
 
 ## Spaces
+'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces are known, but more will be added below as they are made known.
 
 #### Known Space Mappings
 <table>
@@ -290,7 +291,7 @@ Runs the game in the logged in user's library corresponding to the supplied App 
 ```
 GET /steam/space/
 ```
-Gets the currently active space from Big Picture. Refer to the mappings table above for more information.
+Gets the currently active Space from Big Picture. Refer to the mappings table above for more information.
 
 #### Sample Response
 ```json
@@ -305,7 +306,7 @@ Gets the currently active space from Big Picture. Refer to the mappings table ab
 ```
 POST /steam/space/
 ```
-Changes the currently active space in Big Picture.
+Changes the currently active Space in Big Picture.
 
 #### Parameters
 <table>
