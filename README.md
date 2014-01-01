@@ -46,7 +46,7 @@ Unless otherwise stated, it can be assumed that each API call simply returns a J
 ```
 
 ## Authentication
-The first request you make to API will (providing you're in Big Picture) prompt you to authorise the remote client by its device name and token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
+The first request you make to the API while in Big Picture will prompt you to authorise the remote client by its device token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
 
 #### Parameters
 <table>
