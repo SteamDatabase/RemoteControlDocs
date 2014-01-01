@@ -13,9 +13,9 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 + [Games](#games)
 	- [List Games](#games-list)
 	- [Play Games](#games-play)
-+ [Space](#space)
-	- [Current Space](#space-current)
-	- [Change Space](#space-change)
++ [Spaces](#spaces)
+	- [Current Space](#spaces-current)
+	- [Change Space](#spaces-change)
 + [Client Libraries](#client-libraries)
 
 ## <a name="overview"></a>Overview
@@ -31,7 +31,7 @@ Supplying incorrect payload data or using an invalid API call will result in a H
 ## <a name="authentication"></a>Authentication
 The first request you make to API will (providing you're in Big Picture) prompt you to authorise the remote client by its device name and token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
 
-### Parameters
+#### Parameters
 <table>
     <thead>
         <tr>
@@ -56,3 +56,15 @@ The first request you make to API will (providing you're in Big Picture) prompt 
         </tr>
     </tbody>
 </table>
+
+## <a name="buttons"></a>Buttons
+## <a name="keyboard"></a>Keyboard
+### <a name="keyboard-keys"></a>Keys
+### <a name="keyboard-sequences"></a>Sequences
+## <a name="games"></a>Games
+### <a name="games-list"></a>List Games
+### <a name="games-play"></a>Play Games
+## <a name="spaces"></a>Spaces
+### <a name="spaces-current"></a>Current Space
+### <a name="spaces-change"></a>Change Space
+## <a name="client-libraries"></a>Client Libraries
