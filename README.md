@@ -196,9 +196,14 @@ Returns a list of all available games in the currently logged in user's library.
             <td>Currently the default space and associated with the store, game library and community sections. Requests sent to here will send you back to </td>
         </tr>
         <tr>
-            <td><code>device_token</code></td>
-            <td>string</td>
-            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again).</td>
+            <td>Friends</td>
+            <td>friends</td>
+            <td>The space from where you can send and receive messages and interact with your friends list.</td>
+        </tr>
+        <tr>
+            <td>Web Browser</td>
+            <td>webbrowser</td>
+            <td>The Steam Big Picture web browser space.</td>
         </tr>
     </tbody>
 </table>
