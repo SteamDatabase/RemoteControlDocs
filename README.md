@@ -31,8 +31,10 @@ Supplying incorrect payload data or using an invalid API call will result in a H
 ### Success Response
 Unless otherwise stated, it can be assumed that each API call simply returns a JSON response of the following on a successful call:
 
-```
-{ "success": true }
+```json
+{
+    "success": true
+}
 ```
 
 ## Authentication
@@ -156,24 +158,29 @@ Returns a list of all available games in the currently logged in user's library.
 
 #### Sample Response
 ```json
-"3483": {
-    "name": "Peggle Extreme",
-    "installed": 1,
-    "update_running": 0,
-    "update_paused": 0,
-    "bytes_downloaded": 14690192,
-    "bytes_needed": 14690192,
-    "bytes_per_second": 0,
-    "type": "game",
-    "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/427a98a549c3813e13b4062300709000599817b0.jpg",
-    "logo": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/4b8f3d8f7f94cc5ca420a8586c8dd903edacce12.jpg",
-    "current_disk_bytes": 23356380,
-    "estimated_disk_bytes": 23356380,
-    "minutes_played": {
-        "forever": 47,
-        "last_two_weeks": 46
-    },
-    "last_played_at": 1387758040
+{
+    "success": true,
+    "data": {
+        "3483": {
+            "name": "Peggle Extreme",
+            "installed": 1,
+            "update_running": 0,
+            "update_paused": 0,
+            "bytes_downloaded": 14690192,
+            "bytes_needed": 14690192,
+            "bytes_per_second": 0,
+            "type": "game",
+            "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/427a98a549c3813e13b4062300709000599817b0.jpg",
+            "logo": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/4b8f3d8f7f94cc5ca420a8586c8dd903edacce12.jpg",
+            "current_disk_bytes": 23356380,
+            "estimated_disk_bytes": 23356380,
+            "minutes_played": {
+                "forever": 47,
+                "last_two_weeks": 46
+            },
+            "last_played_at": 1387758040
+        }
+    }
 }
 ```
 ### Run Game
@@ -213,5 +220,44 @@ Runs the game in the logged in user's library corresponding to the supplied App 
 </table>
 
 ### Current Space
+```
+GET /steam/space/
+```
+Gets the currently active space from Big Picture. Refer to the mappings table above for more information.
+
+#### Sample Response
+```json
+{
+    "success": true,
+    "data": { 
+        "name": "library"
+    }
+}
+```
 ### Change Space
+```
+POST /steam/space/
+```
+Changes the currently active space in Big Picture.
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>space</code></td>
+            <td>required</td>
+            <td>string</td>
+            <td>The space identifier to navigate to. Refer to the mappings table above.</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Client Libraries
