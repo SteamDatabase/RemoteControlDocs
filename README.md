@@ -5,6 +5,7 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 
 ## Table of Contents
 + [Overview](#overview)
+
 + [Authentication](#authentication)
 + [Buttons](#buttons)
 + [Keyboard](#keyboard)
@@ -27,6 +28,13 @@ Data is sent as GET or POST payloads, and returned as [JSON](http://json.org).
 
 ### Errors
 Supplying incorrect payload data or using an invalid API call will result in a HTTP `404` Error Code being returned.
+
+### Success Response
+Unless otherwise stated, it can be assumed that each API call simply returns a JSON response of the following on a successful call:
+
+```
+{ "success": true }
+```
 
 ## Authentication
 The first request you make to API will (providing you're in Big Picture) prompt you to authorise the remote client by its device name and token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
@@ -58,13 +66,143 @@ The first request you make to API will (providing you're in Big Picture) prompt 
 </table>
 
 ## Buttons
+```
+POST /steam/button/:button/
+```
+The Button API allows you to simulate the pressing of controller buttons within Steam Big Picture. The buttons are based on an Xbox 360 Gamepad, whether this will change in the future to better reflect the official Steam Controller is unknown.
+
+#### Valid Buttons
+
+The button identifier should be used in place of :button in the get request above.
+
+<table>
+    <thead>
+        <tr>
+            <th width=100>Button</th>
+            <th width=50>Identifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Left</td>
+            <td><code>left</code></td>
+        </tr>
+        <tr>
+            <td>Right</td>
+            <td><code>right</code></td>
+        </tr>
+        <tr>
+            <td>Up</td>
+            <td><code>up</code></td>
+        </tr>
+        <tr>
+            <td>Down</td>
+            <td><code>down</code></td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td><code>right</code></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td><code>b</code></td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td><code>x</code></td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td><code>y</code></td>
+        </tr>
+    </tbody>
+</table>
+
 ## Keyboard
+The Keyboard API allows you to simulate key presses (or a sequence of characters being typed out) within Steam Big Picture.
 ### Keys
+Coming Soon (it won't work...)
 ### Sequences
+```
+POST /steam/keyboard/sequence/
+```
+The Keyboard API's sequence method accepts a string of characters as a POST field and outputs it as a string of characters in the current selected text input within Steam Big Picture.
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th width="50">Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>sequence</code></td>
+            <td>required</td>
+            <td>string</td>
+            <td>The string of unicode characters to enter into the currently selected input field.</td>
+        </tr>
+    </tbody>
+</table>
 ## Games
+The Games API allows you to browse your game library remotely and even load up games within Steam Big Picture.
 ### List Games
+```
+GET /steam/games/
+```
+Returns a list of all available games in the currently logged in user's library.
+
+#### Sample Response
+```json
+"3483": {
+    "name": "Peggle Extreme",
+    "installed": 1,
+    "update_running": 0,
+    "update_paused": 0,
+    "bytes_downloaded": 14690192,
+    "bytes_needed": 14690192,
+    "bytes_per_second": 0,
+    "type": "game",
+    "icon": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/427a98a549c3813e13b4062300709000599817b0.jpg",
+    "logo": "http://media.steampowered.com/steamcommunity/public/images/apps/3483/4b8f3d8f7f94cc5ca420a8586c8dd903edacce12.jpg",
+    "current_disk_bytes": 23356380,
+    "estimated_disk_bytes": 23356380,
+    "minutes_played": {
+        "forever": 47,
+        "last_two_weeks": 46
+    },
+    "last_played_at": 1387758040
+}
+```
 ### Play Games
 ## Spaces
+
+#### Space Mappings
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th width="100">Identifier</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Library</td>
+            <td>library</td>
+            <td>Currently the default space and associated with the store, game library and community sections. Requests sent to here will send you back to </td>
+        </tr>
+        <tr>
+            <td><code>device_token</code></td>
+            <td>string</td>
+            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again).</td>
+        </tr>
+    </tbody>
+</table>
+
 ### Current Space
 ### Change Space
 ## Client Libraries
