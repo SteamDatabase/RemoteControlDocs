@@ -45,7 +45,7 @@ The first request you make to API will (providing you're in Big Picture) prompt 
         <tr>
             <th>Name</th>
             <th>Required?</th>
-            <th width="50">Type</th>
+            <th style="width: 50px;">Type</th>
             <th width=100%>Description</th>
         </tr>
     </thead>
@@ -78,8 +78,8 @@ The button identifier should be used in place of :button in the get request abov
 <table>
     <thead>
         <tr>
-            <th width=100>Button</th>
-            <th width=50>Identifier</th>
+            <th style="width: 100px;">Button</th>
+            <th style="width: 50px;">Identifier</th>
         </tr>
     </thead>
     <tbody>
@@ -134,7 +134,7 @@ The Keyboard API's sequence method accepts a string of characters as a POST fiel
         <tr>
             <th>Name</th>
             <th>Required?</th>
-            <th width="50">Type</th>
+            <th>Type</th>
             <th width=100%>Description</th>
         </tr>
     </thead>
@@ -184,8 +184,8 @@ Returns a list of all available games in the currently logged in user's library.
 <table>
     <thead>
         <tr>
-            <th width=200>Name</th>
-            <th width=100>Identifier</th>
+            <th style="width: 200px;">Name</th>
+            <th style="width: 100px;">Identifier</th>
             <th width=100%>Description</th>
         </tr>
     </thead>
