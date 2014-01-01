@@ -12,7 +12,7 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 	- [Sequences](#sequences)
 + [Games](#games)
 	- [List Games](#list-games)
-	- [Play Games](#play-games)
+	- [Run Games](#run-game)
 + [Spaces](#spaces)
 	- [Current Space](#current-space)
 	- [Change Space](#change-space)
@@ -152,7 +152,7 @@ The Games API allows you to browse your game library remotely and even load up g
 ```
 GET /steam/games/
 ```
-Returns a list of all available games in the currently logged in user's library.
+Returns a list of all available games in the currently logged in user's library. Each key represents a Steam App ID.
 
 #### Sample Response
 ```json
@@ -176,7 +176,12 @@ Returns a list of all available games in the currently logged in user's library.
     "last_played_at": 1387758040
 }
 ```
-### Play Games
+### Run Game
+```
+POST /steam/games/:appid/run
+```
+Runs the game in the logged in user's library corresponding to the supplied App ID (if it's installed).
+
 ## Spaces
 
 #### Space Mappings
@@ -192,7 +197,7 @@ Returns a list of all available games in the currently logged in user's library.
         <tr>
             <td>Library</td>
             <td>library</td>
-            <td>Currently the default space and associated with the store, game library and community sections. Requests sent to here will send you back to </td>
+            <td>Currently the default space and associated with the store, game library and community sections.</td>
         </tr>
         <tr>
             <td>Friends</td>
@@ -202,7 +207,7 @@ Returns a list of all available games in the currently logged in user's library.
         <tr>
             <td>Web Browser</td>
             <td>webbrowser</td>
-            <td>The Steam Big Picture web browser space.</td>
+            <td>The Steam Big Picture web browser.</td>
         </tr>
     </tbody>
 </table>
