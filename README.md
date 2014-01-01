@@ -3,7 +3,7 @@
 ## Introduction
 This is an overview of the RESTful API for the Steam Remote HTTP API, first documented by [SteamDB](http://steamdb.info/blog/31/) back in October 2013. They later released [another blogpost](http://steamdb.info/blog/37/) with more information and a link to a repository providing some more functionality than that which is in the _headsDown.html_ file provided with Steam as of December 19th.
 
-Credit mostly goes to the SteamDB guys for this, they did all the leg-work. I just extracted the information from their [SteamRemoteClient Tool](https://github.com/SteamDatabase/RemoteUI/) and turned it into a REST Documentation.
+Credit mostly goes to the SteamDB guys for this, they did all the leg-work. just extracted the information from their [SteamRemoteClient Tool](https://github.com/SteamDatabase/RemoteUI/) and turned it into a REST Documentation.
 
 ## Table of Contents
 + [Overview](#overview)
@@ -328,5 +328,5 @@ Changes the currently active space in Big Picture.
 </table>
 
 ## Client Libraries
-### [SteamDB SteamRemoteClient](https://github.com/SteamDatabase/RemoteUI/blob/master/js/RemoteClient.js)
+#### [SteamDB SteamRemoteClient](https://github.com/SteamDatabase/RemoteUI/blob/master/js/RemoteClient.js)
 Primarily made for use with the RemoteUI.html tool (included in the repository), but for non-local access can be easily modified. It's worth noting that the API does not provide an `Access-Control-Allow-Origin` header, let alone one with a wildcard value, so most browsers won't work with it from a different origin without disabling some security features. JSONP doesn't support POST requests, so that option is out the window too.
