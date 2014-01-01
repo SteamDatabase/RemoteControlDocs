@@ -184,7 +184,7 @@ Returns a list of all available games in the currently logged in user's library.
 <table>
     <thead>
         <tr>
-            <th>Name</th>
+            <th width="200">Name</th>
             <th width="100">Identifier</th>
             <th width=100%>Description</th>
         </tr>
