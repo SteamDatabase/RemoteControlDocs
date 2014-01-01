@@ -7,6 +7,9 @@ This is an overview of the RESTful API for the Steam Remote HTTP API, first docu
 + [Overview](#overview)
 + [Authentication](#authentication)
 + [Buttons](#buttons)
++ [Mouse](#mouse)
+    - [Mouse Movement](#mouse-movement)
+    - [Mouse Buttons](#mouse-buttons)
 + [Keyboard](#keyboard)
 	- [Keys](#keys)
 	- [Sequences](#sequences)
@@ -119,10 +122,69 @@ The button identifier should be used in place of :button in the get request abov
     </tbody>
 </table>
 
+## Mouse
+The Mouse API can be used to control the cursor within Steam Big Picture and simulate Mouse Button presses.
+
+### Mouse Movement
+Moves the Big Picture cursor x/y distance relative to its current position.
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>delta_x</code></td>
+            <td>required</td>
+            <td>int</td>
+            <td>Distance to move the mouse on the x-axis</td>
+        </tr>
+        <tr>
+            <td><code>delta_y</code></td>
+            <td>required</td>
+            <td>int</td>
+            <td>Distance to move the mouse on the y-axis</td>
+        </tr>
+    </tbody>
+</table>
+
+### Mouse Buttons
+```
+POST /steam/mouse/click
+```
+Simulates a mouse click in Steam Big Picture.
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>button</code></td>
+            <td>required</td>
+            <td>string</td>
+            <td>The mouse button to simulate a press for, currently tested: <code>mouse_left</code></td>
+        </tr>
+    </tbody>
+</table>
+
 ## Keyboard
 The Keyboard API allows you to simulate key presses (or a sequence of characters being typed out) within Steam Big Picture.
+
 ### Keys
-Coming Soon (it won't work...)
+TODO.
+
 ### Sequences
 ```
 POST /steam/keyboard/sequence/
@@ -191,7 +253,7 @@ Runs the game in the logged in user's library corresponding to the supplied App 
 
 ## Spaces
 
-#### Space Mappings
+#### Known Space Mappings
 <table>
     <thead>
         <tr>
