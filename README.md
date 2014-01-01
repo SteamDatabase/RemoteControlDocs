@@ -45,7 +45,7 @@ The first request you make to API will (providing you're in Big Picture) prompt 
         <tr>
             <th>Name</th>
             <th>Required?</th>
-            <th style="width: 50px;">Type</th>
+            <th>Type</th>
             <th width=100%>Description</th>
         </tr>
     </thead>
@@ -78,8 +78,8 @@ The button identifier should be used in place of :button in the get request abov
 <table>
     <thead>
         <tr>
-            <th style="width: 100px;">Button</th>
-            <th style="width: 50px;">Identifier</th>
+            <th>Button</th>
+            <th>Identifier</th>
         </tr>
     </thead>
     <tbody>
@@ -184,8 +184,8 @@ Returns a list of all available games in the currently logged in user's library.
 <table>
     <thead>
         <tr>
-            <th style="width: 200px;">Name</th>
-            <th style="width: 100px;">Identifier</th>
+            <th>Name</th>
+            <th>Identifier</th>
             <th width=100%>Description</th>
         </tr>
     </thead>
