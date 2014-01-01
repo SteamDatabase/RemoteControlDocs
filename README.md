@@ -257,7 +257,7 @@ Returns a list of all available games in the currently logged in user's library.
 ```
 POST /steam/games/:appid/run
 ```
-Runs the game corresponding to the supplied App ID (if it's installed).
+Runs the game corresponding to the supplied App ID (if it's installed). If the game isn't installed, it will be installed and a second request to play it must be called once installation has completed in order to run the game.
 
 ## Spaces
 'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces are known, but more will be added below as they are made known.
