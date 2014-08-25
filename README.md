@@ -29,10 +29,10 @@ If you find an error, want to add something I missed or simply want to add a cli
 ## <a name="overview"></a>Overview
 
 ### Enabling Remote Control
-Launch Steam with the `-enableremotecontrol` argument. This will launch Steam with the remote webserver enabled so you can access all the new API features. Alternatively those running SteamOS will find this is enabled by default.
+The remote control has to be enabled in Big Picture's settings.
 
 ### Formats
-The base URL for all API requests is `https://<your_steam_client_ip>:8443/steam`
+The base URL for all API requests is `https://<your_steam_client_ip>:27037/steam`
 
 Data is sent as GET or POST payloads, and returned as [JSON](http://json.org).
 
