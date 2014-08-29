@@ -11,6 +11,8 @@ If you find an error, want to add something I missed or simply want to add a cli
 ## Table of Contents
 + [Overview](#overview)
 + [Authentication](#authentication)
+	- [Check Authorization](#check-authentication)
+	- [Authorization Request](#request-authentication)
 + [Buttons](#buttons)
 + [Mouse](#mouse)
     - [Mouse Movement](#mouse-movement)
@@ -21,9 +23,15 @@ If you find an error, want to add something I missed or simply want to add a cli
 + [Games](#games)
 	- [List Games](#list-games)
 	- [Run Games](#run-game)
++ [Music](#music)
+ 	- [Actions](#actions-music)
+ 	- [Volume](#volume-music)
+ 	- [Mode](#mode-music)
+	- [Info](#info-music)
 + [Spaces](#spaces)
 	- [Current Space](#current-space)
 	- [Change Space](#change-space)
++ [Streaming](#streaming)
 + [Client Libraries](#client-libraries)
 
 ## <a name="overview"></a>Overview
@@ -51,7 +59,17 @@ Unless otherwise stated, it can be assumed that each API call simply returns a J
 ## Authentication
 The first request you make to the API while in Big Picture will prompt you to authorise the remote client by its device token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
 
-#### Parameters
+### Check Authorization
+```
+GET /steam/authorized/
+```
+
+### Authorization Request 
+```
+POST /steam/authorization/
+```
+
+#### Authorization Request Parameters
 <table>
     <thead>
         <tr>
@@ -347,6 +365,28 @@ POST /steam/games/:appid/run
 ```
 Runs the game corresponding to the supplied App ID (if it's installed). If the game isn't installed, it will be installed and a second request to play it must be called once installation has completed in order to run the game.
 
+## Music
+
+###Action
+```
+POST /steam/music/:action/
+```
+
+###Volume
+```
+POST /steam/music/volume/
+```
+
+###Mode
+```
+POST /steam/music/mode/
+```
+
+###Info
+```
+GET /steam/music/info/
+```
+
 ## Spaces
 'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces have been implemented.
 
@@ -418,6 +458,13 @@ Changes the currently active Space in Big Picture.
         </tr>
     </tbody>
 </table>
+
+## Streaming
+
+###Request Stream
+```
+POST /steam/stream/
+```
 
 ## Client Libraries
 ### Javascript
