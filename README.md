@@ -368,22 +368,22 @@ Runs the game corresponding to the supplied App ID (if it's installed). If the g
 
 ## Music
 
-###Action
+### Action
 ```
 POST /steam/music/:action/
 ```
 
-###Volume
+### Volume
 ```
 POST /steam/music/volume/
 ```
 
-###Mode
+### Mode
 ```
 POST /steam/music/mode/
 ```
 
-###Info
+### Info
 ```
 GET /steam/music/info/
 ```
@@ -462,7 +462,7 @@ Changes the currently active Space in Big Picture.
 
 ## Streaming
 
-###Request Stream
+### Request Stream
 ```
 POST /steam/stream/
 ```
