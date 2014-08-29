@@ -24,7 +24,7 @@ If you find an error, want to add something I missed or simply want to add a cli
 	- [List Games](#list-games)
 	- [Run Games](#run-game)
 + [Music](#music)
- 	- [Actions](#actions-music)
+ 	- [Action](#actions-music)
  	- [Volume](#volume-music)
  	- [Mode](#mode-music)
 	- [Info](#info-music)
