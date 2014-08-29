@@ -32,6 +32,7 @@ If you find an error, want to add something I missed or simply want to add a cli
 	- [Current Space](#current-space)
 	- [Change Space](#change-space)
 + [Streaming](#streaming)
+ 	- [Request Stream](#request-streaming)
 + [Client Libraries](#client-libraries)
 
 ## <a name="overview"></a>Overview
