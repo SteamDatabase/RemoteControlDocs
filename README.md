@@ -67,6 +67,8 @@ GET /steam/authorized/
 
 #### Sample Responses
 
+####Authorized
+
 ```json
 {
    "success": true,
@@ -77,6 +79,8 @@ GET /steam/authorized/
 }
 
 ```
+
+####Not Authorized
 
 ```json
 {
