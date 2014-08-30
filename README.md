@@ -65,6 +65,26 @@ The first request you make to the API while in Big Picture will prompt you to au
 GET /steam/authorized/
 ```
 
+#### Sample Responses
+
+```json
+{
+   "success": true,
+   "data":
+   {
+       "tenfoot": 0
+   }
+}
+
+```
+
+```json
+{
+   "success": false,
+   "error": "authorization_needs_prompt"
+}
+```
+
 ### Authorization Request 
 ```
 POST /steam/authorization/
@@ -91,7 +111,7 @@ POST /steam/authorization/
             <td><code>device_token</code></td>
             <td>required</td>
             <td>string</td>
-            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again).</td>
+            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again). Minimum length of 8 characters.</td>
         </tr>
     </tbody>
 </table>
@@ -372,6 +392,36 @@ Runs the game corresponding to the supplied App ID (if it's installed). If the g
 ```
 POST /steam/music/:action/
 ```
+#### Valid Actions
+
+The button identifier should be used in place of :button in the get request above.
+
+<table>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Identifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Guide/Play</td>
+            <td><code>play</code></td>
+        </tr>
+        <tr>
+            <td>Pause</td>
+            <td><code>pause</code></td>
+        </tr>
+        <tr>
+            <td>Next</td>
+            <td><code>next</code></td>
+        </tr>
+        <tr>
+            <td>Previous</td>
+            <td><code>previous</code></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Volume
 ```
@@ -466,6 +516,26 @@ Changes the currently active Space in Big Picture.
 ```
 POST /steam/stream/
 ```
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>port</code></td>
+            <td>required</td>
+            <td>string</td>
+            <td>The space identifier to navigate to. Refer to the mappings table above.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Client Libraries
 ### Javascript
