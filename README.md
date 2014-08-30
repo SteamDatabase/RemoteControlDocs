@@ -31,6 +31,7 @@ If you find an error, want to add something I missed or simply want to add a cli
 + [Spaces](#spaces)
 	- [Current Space](#current-space)
 	- [Change Space](#change-space)
++ [State](#state)
 + [Streaming](#streaming)
  	- [Request Stream](#request-streaming)
 + [UI](#UI)
@@ -601,6 +602,43 @@ Changes the currently active Space in Big Picture.
         </tr>
     </tbody>
 </table>
+
+## State
+
+Used to get the current state of Steam
+
+```
+GET /steam/state/
+```
+
+Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "tenfoot": 1,
+       "space": "library",
+       "music":
+       {
+           "playback":
+           {
+               "status": "paused",
+               "looped": 0,
+               "shuffled": 0,
+               "volume": 0.5,
+               "queue_count": 1
+           },
+           "current":
+           {
+               "artist": "Darude",
+               "album": "Sandstorm",
+               "track": "Sandstorm"
+           }
+       }
+   }
+}
+```
 
 ## Streaming
 
