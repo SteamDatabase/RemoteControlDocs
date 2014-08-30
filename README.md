@@ -611,6 +611,32 @@ Used to get the current state of Steam
 GET /steam/state/
 ```
 
+#### State Request Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>long_poll</code></td>
+            <td>optional</td>
+            <td>bool</td>
+            <td>Will cause the request to return only when the state has changed</td>
+        </tr>
+        <tr>
+            <td><code>session_name</code></td>
+            <td>optional</td>
+            <td>string</td>
+            <td>Unknown</td>
+        </tr>
+    </tbody>
+</table>
+
 Sample Response
 ```json
 {
