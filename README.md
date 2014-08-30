@@ -349,6 +349,7 @@ Accepts a string of characters as a POST field and outputs it as a string of cha
         </tr>
     </tbody>
 </table>
+
 ## Games
 Enables the browsing of the currently logged in user's game library and the starting up of games within Steam Big Picture.
 ### List Games
@@ -429,14 +430,34 @@ The action identifier should be used in place of :action in the post request abo
 
 ### Volume
 ```
-POST /steam/music/volume/
+POST|GET /steam/music/volume/
 ```
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>volume</code></td>
+            <td>optional</td>
+            <td>double</td>
+            <td>Decimal point value between 0 and 1, where 0 is muted and 1 is max volume.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Mode
 ```
 POST /steam/music/mode/
 ```
-Used to 
+Used to set the current music modes.
 
 #### Parameters
 <table>
@@ -491,11 +512,17 @@ GET /steam/music/
    {
        "playback":
        {
-           "status": "done",
+           "status": "playing",
            "looped": 0,
            "shuffled": 0,
-           "volume": 1,
-           "queue_count": 0
+           "volume": 0.75,
+           "queue_count": 1
+       },
+       "current":
+       {
+           "artist": "Darude",
+           "album": "Sandstorm",
+           "track": "Sandstorm"
        }
    }
 }
