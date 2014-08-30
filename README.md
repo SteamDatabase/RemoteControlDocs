@@ -33,6 +33,8 @@ If you find an error, want to add something I missed or simply want to add a cli
 	- [Change Space](#change-space)
 + [Streaming](#streaming)
  	- [Request Stream](#request-streaming)
++ [UI](#UI)
+ 	- [Tenfoot](#tenfoot)
 + [Client Libraries](#client-libraries)
 
 ## <a name="overview"></a>Overview
@@ -128,7 +130,7 @@ Simulates the pressing of controller buttons within Steam Big Picture. The butto
 
 #### Valid Buttons
 
-The button identifier should be used in place of :button in the post request above.
+The button identifier should be used in place of :button in the POST request above.
 
 <table>
     <thead>
@@ -399,7 +401,7 @@ POST /steam/music/:action/
 ```
 #### Valid Actions
 
-The action identifier should be used in place of :action in the post request above.
+The action identifier should be used in place of :action in the POST request above.
 
 <table>
     <thead>
@@ -618,6 +620,14 @@ POST /steam/stream/
    }
 }
 ```
+## UI
+
+### Tenfoot
+```
+POST /ui/tenfoot/
+```
+
+Used to launch the tenfoot interface 
 
 ## Client Libraries
 ### Javascript
