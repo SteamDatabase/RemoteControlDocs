@@ -67,7 +67,7 @@ GET /steam/authorized/
 
 #### Sample Responses
 
-####Authorized
+Authorized
 
 ```json
 {
@@ -80,7 +80,7 @@ GET /steam/authorized/
 
 ```
 
-####Not Authorized
+Not Authorized
 
 ```json
 {
@@ -436,10 +436,69 @@ POST /steam/music/volume/
 ```
 POST /steam/music/mode/
 ```
+Used to 
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>looped</code></td>
+            <td>optional</td>
+            <td>bool (0|1)</td>
+            <td>Enable or disable looping mode</td>
+        </tr>
+    </tbody>
+        <tbody>
+        <tr>
+            <td><code>shuffled</code></td>
+            <td>optional</td>
+            <td>bool (0|1)</td>
+            <td>Enable or disable shuffled mode</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "looped": 0,
+       "shuffled": 0
+   }
+}
+```
 
 ### Info
 ```
-GET /steam/music/info/
+GET /steam/music/
+```
+
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "playback":
+       {
+           "status": "done",
+           "looped": 0,
+           "shuffled": 0,
+           "volume": 1,
+           "queue_count": 0
+       }
+   }
+}
 ```
 
 ## Spaces
@@ -484,7 +543,7 @@ Gets the currently active Space from Big Picture. Refer to the mappings table ab
 {
     "success": true,
     "data": { 
-        "name": "library"
+        "space": "library"
     }
 }
 ```
@@ -521,25 +580,17 @@ Changes the currently active Space in Big Picture.
 POST /steam/stream/
 ```
 
-#### Parameters
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th width=100%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>port</code></td>
-            <td>required</td>
-            <td>string</td>
-            <td>The space identifier to navigate to. Refer to the mappings table above.</td>
-        </tr>
-    </tbody>
-</table>
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "stream_port": 27031,
+       "auth_token": "fb3b606ba869c9834632c2d9e12d5c94968220d1e9b1397f0bf7c84b330a802f"
+   }
+}
+```
 
 ## Client Libraries
 ### Javascript
