@@ -34,7 +34,7 @@ If you find an error, want to add something I missed or simply want to add a cli
 + [State](#state)
 + [Streaming](#streaming)
  	- [Request Stream](#request-streaming)
-+ [UI](#UI)
++ [UI](#ui)
  	- [Tenfoot](#tenfoot)
 + [Client Libraries](#client-libraries)
 
