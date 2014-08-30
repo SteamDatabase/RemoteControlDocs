@@ -11,6 +11,8 @@ If you find an error, want to add something I missed or simply want to add a cli
 ## Table of Contents
 + [Overview](#overview)
 + [Authentication](#authentication)
+	- [Check Authorization](#check-authentication)
+	- [Authorization Request](#request-authentication)
 + [Buttons](#buttons)
 + [Mouse](#mouse)
     - [Mouse Movement](#mouse-movement)
@@ -21,9 +23,19 @@ If you find an error, want to add something I missed or simply want to add a cli
 + [Games](#games)
 	- [List Games](#list-games)
 	- [Run Games](#run-game)
++ [Music](#music)
+ 	- [Action](#action)
+ 	- [Volume](#volume)
+ 	- [Mode](#mode)
+	- [Info](#info)
 + [Spaces](#spaces)
 	- [Current Space](#current-space)
 	- [Change Space](#change-space)
++ [State](#state)
++ [Streaming](#streaming)
+ 	- [Request Stream](#request-streaming)
++ [UI](#UI)
+ 	- [Tenfoot](#tenfoot)
 + [Client Libraries](#client-libraries)
 
 ## <a name="overview"></a>Overview
@@ -51,7 +63,41 @@ Unless otherwise stated, it can be assumed that each API call simply returns a J
 ## Authentication
 The first request you make to the API while in Big Picture will prompt you to authorise the remote client by its device token. Every API request requires the passing of at least a device token as GET, POST or COOKIE data and will therefore not be included in the documentation beyond the below as it assumed you are already including these details appropriately for each request.
 
-#### Parameters
+### Check Authorization
+```
+GET /steam/authorized/
+```
+
+#### Sample Responses
+
+Authorized
+
+```json
+{
+   "success": true,
+   "data":
+   {
+       "tenfoot": 0
+   }
+}
+
+```
+
+Not Authorized
+
+```json
+{
+   "success": false,
+   "error": "authorization_needs_prompt"
+}
+```
+
+### Authorization Request 
+```
+POST /steam/authorization/
+```
+
+#### Authorization Request Parameters
 <table>
     <thead>
         <tr>
@@ -72,7 +118,7 @@ The first request you make to the API while in Big Picture will prompt you to au
             <td><code>device_token</code></td>
             <td>required</td>
             <td>string</td>
-            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again).</td>
+            <td>Device Token used to authorise your client with Steam. This can be generated locally but must be the same for each request (or authorisation will be required again). Minimum length of 8 characters.</td>
         </tr>
     </tbody>
 </table>
@@ -85,7 +131,7 @@ Simulates the pressing of controller buttons within Steam Big Picture. The butto
 
 #### Valid Buttons
 
-The button identifier should be used in place of :button in the get request above.
+The button identifier should be used in place of :button in the POST request above.
 
 <table>
     <thead>
@@ -306,6 +352,7 @@ Accepts a string of characters as a POST field and outputs it as a string of cha
         </tr>
     </tbody>
 </table>
+
 ## Games
 Enables the browsing of the currently logged in user's game library and the starting up of games within Steam Big Picture.
 ### List Games
@@ -346,6 +393,143 @@ Returns a list of all available games in the currently logged in user's library.
 POST /steam/games/:appid/run
 ```
 Runs the game corresponding to the supplied App ID (if it's installed). If the game isn't installed, it will be installed and a second request to play it must be called once installation has completed in order to run the game.
+
+## Music
+
+### Action
+```
+POST /steam/music/:action/
+```
+#### Valid Actions
+
+The action identifier should be used in place of :action in the POST request above.
+
+<table>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Identifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Guide/Play</td>
+            <td><code>play</code></td>
+        </tr>
+        <tr>
+            <td>Pause</td>
+            <td><code>pause</code></td>
+        </tr>
+        <tr>
+            <td>Next</td>
+            <td><code>next</code></td>
+        </tr>
+        <tr>
+            <td>Previous</td>
+            <td><code>previous</code></td>
+        </tr>
+    </tbody>
+</table>
+
+### Volume
+```
+POST|GET /steam/music/volume/
+```
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>volume</code></td>
+            <td>optional</td>
+            <td>double</td>
+            <td>Decimal point value between 0 and 1, where 0 is muted and 1 is max volume.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Mode
+```
+POST /steam/music/mode/
+```
+Used to set the current music modes.
+
+#### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>looped</code></td>
+            <td>optional</td>
+            <td>bool (0|1)</td>
+            <td>Enable or disable looping mode</td>
+        </tr>
+    </tbody>
+        <tbody>
+        <tr>
+            <td><code>shuffled</code></td>
+            <td>optional</td>
+            <td>bool (0|1)</td>
+            <td>Enable or disable shuffled mode</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "looped": 0,
+       "shuffled": 0
+   }
+}
+```
+
+### Info
+```
+GET /steam/music/
+```
+
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "playback":
+       {
+           "status": "playing",
+           "looped": 0,
+           "shuffled": 0,
+           "volume": 0.75,
+           "queue_count": 1
+       },
+       "current":
+       {
+           "artist": "Darude",
+           "album": "Sandstorm",
+           "track": "Sandstorm"
+       }
+   }
+}
+```
 
 ## Spaces
 'Spaces' in Steam Big Picture refer to different sections of the Big Picture client. Currently only a few spaces have been implemented.
@@ -389,7 +573,7 @@ Gets the currently active Space from Big Picture. Refer to the mappings table ab
 {
     "success": true,
     "data": { 
-        "name": "library"
+        "space": "library"
     }
 }
 ```
@@ -418,6 +602,96 @@ Changes the currently active Space in Big Picture.
         </tr>
     </tbody>
 </table>
+
+## State
+
+Used to get the current state of Steam
+
+```
+GET /steam/state/
+```
+
+#### State Request Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th width=100%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>long_poll</code></td>
+            <td>optional</td>
+            <td>bool</td>
+            <td>Will cause the request to return only when the state has changed</td>
+        </tr>
+        <tr>
+            <td><code>session_name</code></td>
+            <td>optional</td>
+            <td>string</td>
+            <td>Unknown</td>
+        </tr>
+    </tbody>
+</table>
+
+Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "tenfoot": 1,
+       "space": "library",
+       "music":
+       {
+           "playback":
+           {
+               "status": "paused",
+               "looped": 0,
+               "shuffled": 0,
+               "volume": 0.5,
+               "queue_count": 1
+           },
+           "current":
+           {
+               "artist": "Darude",
+               "album": "Sandstorm",
+               "track": "Sandstorm"
+           }
+       }
+   }
+}
+```
+
+## Streaming
+
+### Request Stream
+```
+POST /steam/stream/
+```
+
+#### Sample Response
+```json
+{
+   "success": true,
+   "data":
+   {
+       "stream_port": 27031,
+       "auth_token": "fb3b606ba869c9834632c2d9e12d5c94968220d1e9b1397f0bf7c84b330a802f"
+   }
+}
+```
+## UI
+
+### Tenfoot
+```
+POST /ui/tenfoot/
+```
+
+Used to launch the tenfoot interface 
 
 ## Client Libraries
 ### Javascript
