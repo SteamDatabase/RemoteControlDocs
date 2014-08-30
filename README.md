@@ -128,7 +128,7 @@ Simulates the pressing of controller buttons within Steam Big Picture. The butto
 
 #### Valid Buttons
 
-The button identifier should be used in place of :button in the get request above.
+The button identifier should be used in place of :button in the post request above.
 
 <table>
     <thead>
@@ -398,7 +398,7 @@ POST /steam/music/:action/
 ```
 #### Valid Actions
 
-The button identifier should be used in place of :button in the get request above.
+The action identifier should be used in place of :action in the post request above.
 
 <table>
     <thead>
